@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { faTelegramPlane } from '@fortawesome/fontawesome-free-brands';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFlask,
+  faThumbsUp,
+  faDownload,
+  faUsers,
+  faAward,
+  faEdit,
+  faCalendar,
+  faShare,
+  faComments
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,6 +20,14 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 export class LandingPageComponent implements OnInit {
   faTelegramPlane = faTelegramPlane;
   faDownload = faDownload;
+  faFlask = faFlask;
+  faThumbsUp = faThumbsUp;
+  faUsers = faUsers;
+  faAward = faAward;
+  faEdit = faEdit;
+  faCalendar = faCalendar;
+  faShare = faShare;
+  faComments = faComments;
   constructor() { }
 
   ngOnInit() {
