@@ -1,168 +1,106 @@
 <div class="landing-page__container">
-  <div class="header">
+  <div class="header" id="header">
     <div class="header__container">
       <div class="header__introduction-block">
         <h1 class="dev__name">Vlad Senchuk</h1>
         <h3 class="dev__status">User interface/user experience developer</h3>
         <p class="dev__description">Young developer who want`s create perfect sites</p>
-        <button class="button button__telegram"><fa-icon class="button_icon" [icon]="faTelegramPlane"></fa-icon> SEND ME A MESSAGE</button>
-        <button class="button button__cv"><fa-icon class="button_icon" [icon]="faDownload"></fa-icon>DOWNLOAD MY CV</button>
+        <a class="button button__telegram" href="https://t.me/Neitiris">
+          <fa-icon class="button_icon" [icon]="faTelegramPlane"></fa-icon> SEND ME A MESSAGE</a>
+        <a class="button button__cv" href="./assets/vlad-senchuk-cv.docx" download>
+          <fa-icon class="button_icon" [icon]="faDownload"></fa-icon>DOWNLOAD MY CV</a>
       </div>
       <div class="header__details-block">
-        <!--remember to change it to table-->
         <div class="bg_gradient">
-          <ul class="details__list control_list">
-            <li class="details__item">Name: Vlad Senchuk</li>
-            <li class="details__item">Address: </li>
-            <li class="details__item">Phone: (068)706-38-57</li>
-          </ul>
-          <ul class="details__list">
-            <li class="details__item">Date of birth: 17 March 1995</li>
-            <li class="details__item">Nationality: Ukrainian</li>
-            <li class="details__item">Email: Veliantos@gmail.com</li>
-          </ul>
+          <table class="details__list">
+            <tr *ngFor="let detail of details">
+              <td class="details__item details__item-name-of">{{detail.item}}</td>
+              <td class="details__item">{{detail.item_value}}</td>
+              <td class="details__item details__item-name-of">{{detail.another_item}}</td>
+              <td class="details__item">{{detail.another_item_value}}</td>
+            </tr>
+          </table>
           <div class="socials">
-            <a class="socials__icon" href=""><img src="../../../assets/image-personal/facebook-rectangle.png" alt=""></a>
-            <a class="socials__icon" href=""><img src="../../../assets/image-personal/twitter-rectangle.png" alt=""></a>
-            <a class="socials__icon" href=""><img src="../../../assets/image-personal/rectangle.png" alt=""></a>
-            <a class="socials__icon" href=""><img src="../../../assets/image-personal/rectangle.png" alt=""></a>
-            <a class="socials__icon" href=""><img src="../../../assets/image-personal/rectangle.png" alt=""></a>
+            <a *ngFor="let social of socials" class="socials__icon" href="{{social.href}}">
+              <div class="relative_social"><fa-icon class="social_fa" [icon]="social.img"></fa-icon></div>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <nav class="header__nav">
-      <a class="nav_link" href="">HOME</a>
-      <a class="nav_link" href="">ABOUT</a>
-      <a class="nav_link" href="">RESUME</a>
-      <a class="nav_link" href="">SKILLS</a>
-      <a class="nav_link" href="">WORK</a>
-      <a class="nav_link" href="">BLOG</a>
-      <a class="nav_link" href="">CONTAT</a>
-      <a class="nav_link" href="">PAGES</a>
-    </nav>
   </div>
-  <div class="about__container">
+  <nav class="header__nav sticky">
+    <a *ngFor="let link of links" class="nav_link" href="#{{link.href}}" >{{link.name}}</a>
+  </nav>
+  <div class="about__container" id="about">
     <h1 class="title">ABOUT ME</h1>
     <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
     <h3 class="title subtitle">OBJECTIVE</h3>
     <p class="dev__description">some objective</p>
     <h3 class="title subtitle">WHAT I DO?</h3>
-    <div>
-      <img class="work_img" src="../../../assets/image-personal/big-rectangle.png" alt="">
-      <img class="work_img" src="../../../assets/image-personal/big-rectangle.png" alt="">
-      <img class="work_img" src="../../../assets/image-personal/big-rectangle.png" alt="">
-      <img class="work_img" src="../../../assets/image-personal/big-rectangle.png" alt="">
+    <div class="about__rectangle-container">
+      <div class="about__rectangle" *ngFor="let rectangle of rectangles">
+       <fa-icon class="rectangle_icon" [icon]="rectangle.icon"></fa-icon>
+        <p class="rectangle_text">{{rectangle.text}}</p>
+      </div>
     </div>
   </div>
-  <div class="resume__container">
+
+  <div class="resume__container" id="resume">
     <h1 class="title">RESUME</h1>
     <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
-    <h3 class="title subtitle">Education</h3>
-
-
-    <section class="education timeline container">
-      <!-- single timeline event -->
-      <div class="timeline-block">
-        <div class="sm-rectangle"><img src="../../../assets/image-personal/sm-rectangle.png" alt=""></div>
-        <div class="timeline-content">
-          <h2>Event 1</h2>
-          <p>Event 1 Description </p>
-          <span class="date">2004-2010</span>
-        </div>
-      </div>
-
-      <div class="timeline-block">
-        <div class="timeline-content">
-          <h2>Event 2</h2>
-          <p>Event 2 Description </p>
-          <span class="date">2004-2010</span>
-        </div>
-      </div>
-
-      <div class="timeline-block">
-        <div class="timeline-content">
-          <h2>Event 3</h2>
-          <p>Event 3 Description </p>
-          <span class="date">2004-2010</span>
-        </div>
-      </div>
-
-      <div class="timeline-block">
-        <div class="timeline-content">
-          <h2>Event 4</h2>
-          <p>Event 4 Description </p>
-          <span class="date">2004-2010</span>
-        </div>
-      </div>
-
-      <div class="timeline-block">
-        <div class="timeline-content">
-          <h2>Event 5</h2>
-          <p>Event 5 Description </p>
-          <span class="date">2004-2010</span>
-        </div>
-        <div class="sm-rectangle btm_rectangle"><img src="../../../assets/image-personal/sm-rectangle.png" alt=""></div>
-      </div>
-    </section>
-    <h3 class="title subtitle">Education</h3>
+    <!--<h3 class="title subtitle">Education</h3>-->
+    <!--<section class="education timeline container">-->
+      <!--<div class="timeline-block">-->
+        <!--<div class="sm-rectangle"><img src="/src/assets/image-personal/sm-rectangle.png" alt=""></div>-->
+        <!--<div class="timeline-content">-->
+          <!--<h2>SCHOOL</h2>-->
+          <!--<p>Secondary shool sertificate </p>-->
+          <!--<span class="date">2004-2010</span>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="timeline-block">-->
+        <!--<div class="timeline-content">-->
+          <!--<h2>Event 5</h2>-->
+          <!--<p>Event 5 Description </p>-->
+          <!--<span class="date">2004-2010</span>-->
+        <!--</div>-->
+        <!--<div class="sm-rectangle btm_rectangle"><img src="/src/assets/image-personal/sm-rectangle.png" alt=""></div>-->
+      <!--</div>-->
+    <!--</section>-->
+    <h3 class="title subtitle">Experience</h3>
     <section class="experience container timeline">
       <div class="timeline-block">
-        <div class="sm-rectangle"><img src="../../../assets/image-personal/sm-rectangle.png" alt=""></div>
-        <div class="timeline-content">
-          <h2>Event 1</h2>
-          <p>Event 1 Description </p>
-          <span class="date">2004-2010</span>
+        <div class="sm-rectangle"><img src="/src/assets/image-personal/sm-rectangle.png" alt=""></div>
+        <div class="timeline-content timeline-content-left">
+          <h2>SELF EDUCATION</h2>
+          <p> Self-education in the field of programming. </p>
+          <span class="date date-left">2016-NOW</span>
         </div>
       </div>
       <div class="timeline-block">
         <div class="timeline-content">
           <h2>Event 5</h2>
-          <p>Event 5 Description </p>
-          <span class="date">2004-2010</span>
+          <p>WORK</p>
+          <span class="date">2018-FUTURE</span>
         </div>
-        <div class="sm-rectangle btm_rectangle"><img src="../../../assets/image-personal/sm-rectangle.png" alt=""></div>
+        <div class="sm-rectangle btm_rectangle"><img src="/src/assets/image-personal/sm-rectangle.png" alt=""></div>
       </div>
     </section>
   </div>
-  <div class="skills_container">
+
+  <div class="skills_container" id="skills">
     <h1 class="title skills_title">SKILLS</h1>
     <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
     <section class="skill">
       <table class="skill_table">
-        <tr class="skill_table">
+        <tr class="skill_table" *ngFor="let skill of skills">
           <td class="skill_name">
-            <p>UI/UX <span>50%</span></p>
+            <p>{{skill.name}} <span>{{skill.number_of}}%</span></p>
           </td>
           <td class="skill_bar">
-            <div class="progress skill-progress" data-percent="40%">
-              <div class="determinate skill-determinate" style="width: 50%;" [ngClass]="{'width-zero':!loaded}">
-                <i class="skill-determinate-circle fa fa-circle aos-init aos-animate" data-aos="zoom-in"
-                   data-aos-delay="300" data-aos-offset="0"></i>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="skill_name">
-            <p>UI/UX <span>50%</span></p>
-          </td>
-          <td class="skill_bar">
-            <div class="progress skill-progress" data-percent="40%">
-              <div class="determinate skill-determinate" style="width: 50%;" [ngClass]="{'width-zero':!loaded}">
-                <i class="skill-determinate-circle fa fa-circle aos-init aos-animate" data-aos="zoom-in"
-                   data-aos-delay="300" data-aos-offset="0"></i>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="skill_name">
-            <p>UI/UX <span>50%</span></p>
-          </td>
-          <td class="skill_bar">
-            <div class="progress skill-progress" data-percent="40%">
-              <div class="determinate skill-determinate" style="width: 50%;" [ngClass]="{'width-zero':!loaded}">
+            <div class="progress skill-progress">
+              <div class="determinate skill-determinate" style.width="{{skill.percent}}" [ngClass]="{'width-zero':!loaded}">
                 <i class="skill-determinate-circle fa fa-circle aos-init aos-animate" data-aos="zoom-in"
                    data-aos-delay="300" data-aos-offset="0"></i>
               </div>
@@ -171,39 +109,13 @@
         </tr>
       </table>
       <table class="skill_table">
-        <tr class="skill_table">
+        <tr class="skill_table" *ngFor="let skill of skills_column">
           <td class="skill_name">
-            <p>UI/UX <span>50%</span></p>
+            <p>{{skill.name}} <span>{{skill.number_of}}%</span></p>
           </td>
           <td class="skill_bar">
-            <div class="progress skill-progress" data-percent="40%">
-              <div class="determinate skill-determinate" style="width: 50%;" [ngClass]="{'width-zero':!loaded}">
-                <i class="skill-determinate-circle fa fa-circle aos-init aos-animate" data-aos="zoom-in"
-                   data-aos-delay="300" data-aos-offset="0"></i>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="skill_name">
-            <p>UI/UX <span>50%</span></p>
-          </td>
-          <td class="skill_bar">
-            <div class="progress skill-progress" data-percent="40%">
-              <div class="determinate skill-determinate" style="width: 50%;" [ngClass]="{'width-zero':!loaded}">
-                <i class="skill-determinate-circle fa fa-circle aos-init aos-animate" data-aos="zoom-in"
-                   data-aos-delay="300" data-aos-offset="0"></i>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="skill_name">
-            <p>UI/UX <span>50%</span></p>
-          </td>
-          <td class="skill_bar">
-            <div class="progress skill-progress" data-percent="40%">
-              <div class="determinate skill-determinate" style="width: 50%;" [ngClass]="{'width-zero':!loaded}">
+            <div class="progress skill-progress">
+              <div class="determinate skill-determinate" style.width="{{skill.percent}}" [ngClass]="{'width-zero':!loaded}">
                 <i class="skill-determinate-circle fa fa-circle aos-init aos-animate" data-aos="zoom-in"
                    data-aos-delay="300" data-aos-offset="0"></i>
               </div>
@@ -214,123 +126,49 @@
     </section>
     <section class="more-skills">
       <h3 class="title subtitle">MORE SKILLS</h3>
-
       <ul class="circle_skill__list">
-        <li class="circle-skill__item">
-          <div class="c100 p50 green">
-            <span>25%</span>
-            <div class="slice">
-              <div class="bar"></div>
-              <div class="fill"></div>
-            </div>
-          </div>
-          <p class="skill_name circle_name">Leadership</p>
-        </li>
-        <li class="circle-skill__item">
-          <div class="c100 p50 green">
-            <span>25%</span>
-            <div class="slice">
-              <div class="bar"></div>
-              <div class="fill"></div>
-            </div>
-          </div>
-          <p class="skill_name circle_name">Leadership</p>
-        </li>
-        <li class="circle-skill__item">
-          <div class="c100 p50 green">
-            <span>25%</span>
-            <div class="slice">
-              <div class="bar"></div>
-              <div class="fill"></div>
-            </div>
-          </div>
-          <p class="skill_name circle_name">Leadership</p>
-        </li>
-        <li class="circle-skill__item">
-          <div class="c100 p50 green">
-            <span>25%</span>
-            <div class="slice">
-              <div class="bar"></div>
-              <div class="fill"></div>
-            </div>
-          </div>
-          <p class="skill_name circle_name">Leadership</p>
-        </li>
-        <li class="circle-skill__item">
-          <div class="c100 p50 green">
-            <span>25%</span>
-            <div class="slice">
-              <div class="bar"></div>
-              <div class="fill"></div>
-            </div>
-          </div>
-          <p class="skill_name circle_name">Leadership</p>
+        <li *ngFor="let skill of circle_skills" class="circle-skill__item">
+          <app-progress value="{{ skill.number_of }}"></app-progress>
+          <p class="skill_name circle_name">{{skill.name}}</p>
         </li>
       </ul>
     </section>
   </div>
 
-  <div class="works_container">
+  <div class="works_container" id="works">
     <h1 class="title">WORKS</h1>
-    <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
+    <div class="br_img"><img src="/src/assets/image-personal/br.png" alt=""></div>
     <h3 class="title subtitle">ALL MY WORKS YOU CAN FIND AT <a href="https://github.com/neitiris">GITHUB</a></h3>
   </div>
 
   <div class="achievements__container">
     <div class="achievements__content">
       <ul class="achievements__list">
-        <li class="achievements__item">
-          <fa-icon class="achievements__icon" [icon]="faFlask"></fa-icon>
-          <p class="achievement_num">0</p>
-          <p class="skill_name">YEARS EXPERIENCE</p>
-        </li>
-        <li class="achievements__item">
-          <fa-icon class="achievements__icon" [icon]="faThumbsUp"></fa-icon>
-          <p class="achievement_num">0</p>
-          <p class="skill_name">PROJECTS DONE</p>
-        </li>
-        <li class="achievements__item">
-          <fa-icon class="achievements__icon" [icon]="faUsers"></fa-icon>
-          <p class="achievement_num">0</p>
-          <p class="skill_name">HAPPY CLIENTS</p>
-        </li>
-        <li class="achievements__item">
-          <fa-icon class="achievements__icon" [icon]="faAward"></fa-icon>
-          <p class="achievement_num">0</p>
-          <p class="skill_name">AWARDS WON</p>
+        <li class="achievements__item" *ngFor="let achievement of achievements">
+          <fa-icon class="achievements__icon" [icon]=" achievement.icon "></fa-icon>
+          <p class="achievement_num">{{ achievement.num }}</p>
+          <p class="skill_name">{{ achievement.name }}</p>
         </li>
       </ul>
     </div>
   </div>
 
-  <div class="posts">
+    <div class="posts" id="posts">
     <h1 class="title">Latest Posts</h1>
-    <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
+    <div class="br_img"><img src="/src/assets/image-personal/br.png" alt=""></div>
     <div class="news__container">
       <div class="news__block">
-        <div class="news-resent">
-          <img class="absolute-shape" src="../../../assets/image-personal/shape.png">
-          <img src="../../../assets/image-personal/note.png" alt="">
-          <p class="news-tags">PRINT DESIGN, PHOTOSHOP</p>
-          <p class="news__text">HOW TO CREATE A PRINT READY BROCHURE USING PHOTOSHOP</p>
+        <div class="news-resent" *ngFor="let newsItem of news_block">
+          <img class="absolute-shape" src="{{newsItem.img}}">
+          <img src="{{newsItem.bigimg}}" alt="">
+          <p class="news-tags">{{newsItem.tags}}</p>
+          <p class="news__text">{{newsItem.text}}</p>
         </div>
         <div class="news-details">
           <ul class="news_details__list">
-            <li class="news_details__item">
-              <fa-icon [icon]="faEdit"></fa-icon>
-              <span>Vlad Senchuk</span>
-            </li>
-            <li class="news_details__item">
-              <fa-icon [icon]="faCalendar"></fa-icon>
-              <span>02 Oct 2018</span>
-            </li>
-            <li class="news_details__item">
-              <fa-icon [icon]="faShare"></fa-icon>
-              <span>02 Oct 2018</span>
-            </li>
-            <li class="news_details__item">
-              <fa-icon [icon]="faComments"></fa-icon>
-              <span>02 Oct 2018</span>
+            <li class="news_details__item" *ngFor="let news of news_details">
+              <fa-icon [icon]=" news.icon "></fa-icon>
+              <span>{{news.name}}</span>
             </li>
           </ul>
         </div>
@@ -338,16 +176,16 @@
     </div>
   </div>
 
-  <div class="hired__container">
+  <div class="hired__container" id="hired">
     <div class="hired__content">
       <div>
-        <h2 class="get-hired__text">I`M AVIAILABLE FOR RECRUTING</h2>
-        <button class="get-hired__button">GET HIRED</button>
+        <h2 class="get-hired__text">I`M AVAILABLE FOR RECRUITING</h2>
+        <a *ngFor="let link of links" class="get-hired__button" href="#home" >GET HIRED</a>
       </div>
     </div>
   </div>
 
-  <div class="feedback__container">
+  <div class="feedback__container" id="feedback">
     <h1 class="title">GET IN TOUCH</h1>
     <div class="br_img"><img src="../../../assets/image-personal/br.png" alt="">
       <div class="feedback_contact">
@@ -378,6 +216,6 @@
   </div>
   <div class="clear"></div>
   <footer class="footer">
-    <p>Created by<a class="footer__link" href="https://www.linkedin.com/in/vladislav-senchuk-94b57a168/">Vlad Senchuk</a> 2018 © All rights reserved</p>
+    <p>Created by <a class="footer__link" href="https://www.linkedin.com/in/vladislav-senchuk-94b57a168/">Vlad Senchuk</a> 2018 © All rights reserved</p>
   </footer>
 </div>
