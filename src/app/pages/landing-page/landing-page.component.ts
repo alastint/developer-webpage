@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {faFacebookF, faGithub, faLinkedinIn, faTelegramPlane} from '@fortawesome/fontawesome-free-brands';
+import {faFacebookF,
+  faGithub,
+  faLinkedinIn,
+  faTelegramPlane
+} from '@fortawesome/fontawesome-free-brands';
 import {
   faFlask,
   faThumbsUp,
@@ -10,7 +14,6 @@ import {
   faCalendar,
   faShare,
   faComments,
-  faDesktop,
   faMobileAlt
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,14 +25,15 @@ import {
 export class LandingPageComponent implements OnInit {
   faTelegramPlane = faTelegramPlane;
   faDownload = faDownload;
+  selected = 1;
   links = [
-    {name: 'HOME', href: 'header' },
-    {name: 'ABOUT', href: 'about'},
-    {name: 'RESUME', href: 'resume'},
-    {name: 'SKILLS', href: 'skills'},
-    {name: 'WORK', href: 'works'},
-    {name: 'BLOG', href: 'posts'},
-    {name: 'GET HIRED', href: 'hired'},
+    {name: 'HOME', href: 'header', id: 1},
+    {name: 'ABOUT', href: 'about', id: 2},
+    {name: 'RESUME', href: 'resume', id: 3},
+    {name: 'SKILLS', href: 'skills', id: 4},
+    {name: 'WORK', href: 'works', id: 5},
+    {name: 'BLOG', href: 'posts', id: 6},
+    {name: 'GET HIRED', href: 'hired', id: 7},
   ];
   socials = [
     {href: 'https://www.facebook.com/neitiris', img: faFacebookF},
@@ -56,9 +60,9 @@ export class LandingPageComponent implements OnInit {
       another_item_value: 'Veliantos@gmail.com'
     }
   ];
+  objective = 'My objective is creating and education how to create perfect code for use';
   rectangles = [
     {icon: faMobileAlt, text: 'UI/UX'},
-    {icon: faDesktop, text: 'WEB DESIGN'},
 
   ];
   skills = [
@@ -83,8 +87,8 @@ export class LandingPageComponent implements OnInit {
   ];
   news_block = [
     {
-      img: '/src/assets/image-personal/shape.png',
-      bigimg: '/src/assets/image-personal/note.png',
+      img: './assets/image-personal/shape.png',
+      bigimg: './assets/image-personal/note.png',
       tags: 'PRINT DESIGN, PHOTOSHOP',
       text: 'HOW TO CREATE A PRINT READY BROCHURE USING PHOTOSHOP'
     },
@@ -92,13 +96,20 @@ export class LandingPageComponent implements OnInit {
   news_details = [
     {icon: faEdit, name: 'Vlad Senchuk'},
     {icon: faCalendar, name: '02 Oct 2018'},
-    {icon: faShare, name: '02 Oct 2018'},
-    {icon: faComments, name: '02 Oct 2018'},
+    {icon: faShare, name: 'Repost'},
+    {icon: faComments, name: 'Comment'},
+  ];
+  inputs = [
+    {text: 'NAME'},
+    {text: 'EMAIL'},
+    {text: 'TITLE'},
   ];
   constructor() {
   }
 
   ngOnInit() {
   }
-
+  choose(id: number) {
+    this.selected = id;
+  }
 }

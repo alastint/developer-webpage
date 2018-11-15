@@ -44,15 +44,14 @@ li{
 .dev__name{
   font-family: $font-base;
   color:  $font-color-secondary;
-  font-size: 60px;
+  font-size: 4vw;
   font-weight: bold;
-  line-height: 79px;
   letter-spacing: 3px;
 }
 .dev__status{
   font-family: $font-base;
   color:  $font-color-three;
-  font-size: 22px;
+  font-size: 1.4vw;
   font-weight: 600;
   line-height: 32px;
   letter-spacing: 1px;
@@ -60,9 +59,14 @@ li{
 .dev__description{
   font-family: $font-base;
   color:  $font-color-secondary;
-  font-size: 14px;
+  font-size: 1.3vw;
   font-weight: 300;
   line-height: 26px;
+  padding-bottom: 10px;
+}
+.dev_objective{
+  color: #3a4149;
+  font-size: 20px;
 }
 .button{
   border-radius: 5px;
@@ -150,16 +154,34 @@ background-color: #52b3d9;
   border: 1px solid $font-color-secondary;
   background-color:  #ffffff;
   width: 100%;
-  text-align: center;
-  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
 }
-.nav_link{
-  padding: 0 20px;
+.nav_list{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  justify-content: center;
+}
+.nav_item{
+  padding:20px;
   list-style: none;
   font-weight: bolder;
+  cursor: pointer;
+}
+.nav_link{
+  padding:20px;
   color: $font-color-dark;
   text-decoration: none;
 }
+.nav_item:hover{
+  background: #68c3a3;
+}
+.nav_item:hover *{
+  color: white;
+}
+
 .sticky{
   position: sticky;
   z-index: 1;
@@ -283,7 +305,7 @@ background-color: #52b3d9;
 .timeline-content .date {
   position: absolute;
   width: 100%;
-  left: 104.8%;
+  left: 105%;
   top: 45px;
   padding: 5px 0;
   font-size: 16px;
@@ -297,7 +319,7 @@ color: forestgreen;
 }
 .timeline-block:nth-child(even) .timeline-content .date {
   left: auto;
-  right: 105.5%;
+  right: 103.5%;
   padding: 5px 0;
   text-align: right;
 }
@@ -394,7 +416,9 @@ color: forestgreen;
 .skill_bar{
   width: 370px;
 }
-
+.skill_percent{
+  color: bisque;
+}
 .progress__svg {
   transform: rotate(-90deg);
 }
@@ -435,7 +459,6 @@ color: forestgreen;
 }
 .achievements__container{
   background: url("../../../assets/image-personal/awards-background.png");
-  background-size: 100%;
   height: 400px;
   width: 100%;
 }
@@ -507,7 +530,7 @@ color: forestgreen;
 }
 .news_details__list{
   display: flex;
-  margin: 0;
+  margin: 0 auto;
   padding: 10px 0;
 }
 .news_details__item{
@@ -515,6 +538,9 @@ color: forestgreen;
   font-size: 12px;
   padding: 6px;
   color: #636363;
+}
+.news_details__item-icon{
+  margin-right: 3px;
 }
 .news-details{
   border-top: 1px solid gainsboro;
@@ -541,13 +567,13 @@ color: forestgreen;
   justify-content: center;
 }
 .get-hired__button{
-  height: 50px;
-  width: 180px;
-  background: transparent;
-  border: 1px solid $font-color-secondary;
+  padding: 15px 30px;
+  background: rgb(103, 181, 154);
   border-radius: 8px;
   font-size: 14px;
   font-weight: bold;
+  text-decoration: none;
+  border: 1px solid $font-color-secondary;
   color: $font-color-secondary;
 }
 .get-hired__text{
@@ -595,6 +621,8 @@ color: forestgreen;
 }
 .feedback__text{
   color:  #282828;
+  padding-bottom: 0;
+  margin-bottom: 5px;
 }
 .feedback__bold-text {
   font-weight: bold;
@@ -603,7 +631,7 @@ color: forestgreen;
                       FOOTER
 ***********************************************************/
 .footer{
-  margin-top: 30px;
+  margin-top: 50px;
   width: 100%;
   height: 100px;
   display: flex;
@@ -615,4 +643,179 @@ color: forestgreen;
 .footer__link{
   color: #9c9696;
   text-decoration: none;
+}
+/***********************************************************
+                    @MEDIA
+***********************************************************/
+@media screen and (max-width: 1685px) {
+ .landing-page__container{
+   width: auto;
+   max-width: 1685px
+ }
+  .header__introduction-block{
+    width: 35%;
+    padding: 6% 0 0 6%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1430px) {
+  .header, .header__details-block{
+  min-height: 550px;
+  max-height: 694px;
+  }
+  .header{
+    height: auto;
+  }
+  .header__details-block{
+    height: 100%;
+    background-size: auto;
+  }
+  .nav_item{
+    padding: 15px 2%;
+  }
+  .nav_link{
+    padding: 0;
+  }
+  .timeline-content {
+    width: 36vw;
+  }
+  .skill{
+    padding: 0 2%;
+  }
+  .skill_table{
+    padding: 0;
+  }
+  .skill_bar{
+    width: 290px;
+    padding-right: 20px;
+  }
+  .subtitle{
+    color: #8da2b7;
+  }
+  .skill_name{
+    padding-right: 5px;
+    font-size: unset;
+  }
+  .achievements__content{
+    padding: 40px 0;
+  }
+  .achievements__container{
+    height: auto;
+  }
+  .achievements__item{
+    padding: 0 6%;
+  }
+  .achievement_name{
+    text-align: center;
+    font-size: 1.5vw;
+  }
+  .achievements__icon{
+    font-size: 7vw;
+  }
+  .achievements__icon{
+    font-size: 6.5vw;
+  }
+  .feedback__container{
+    padding: 50px 0;
+  }
+  .feedback_contact{
+    text-align: center;
+  }
+  .hired__container{
+    background-size: 260%;
+  }
+}
+@media screen and(min-width: 700px) and (max-width: 1160px){
+  .bg_gradient{
+    padding: 50px 25px;
+  }
+  .details__list{
+    font-size: 1.8vw;
+  }
+  .button{
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    width: 200px;
+    height: unset;
+    padding: 10px 0;
+  }
+}
+@media screen and (max-width: 699px) {
+  .header__introduction-block{
+    width: 100%;
+    text-align: center;
+    padding: 0 0 4%;
+  }
+  .header__details-block{
+    margin: auto;
+    background-size: 100%;
+    width: 100%;
+    min-height: 570px;
+  }
+  .header__container{
+    display: grid;
+    margin: auto;
+  }
+  .header{
+    height: 890px;
+    max-height: unset;
+  }
+  .about__container{
+    padding-top: 20px;
+  }
+  .timeline-content{
+    width: 37%;
+  }
+  .skill_bar {
+    width: 150px;
+    padding-right: 0;
+  }
+  .skill_name{
+    font-size: 11px;
+  }
+  .circle_skill__list{
+    padding: 0;
+  }
+  .achievements__item{
+    padding: 0 19px;
+  }
+  .achievements__icon {
+    font-size: 200%;
+  }
+  .achievement_num[_ngcontent-c1] {
+    font-size: 55px;
+  }
+  .achievement_name{
+    text-align: center;
+  }
+  .achievements__container{
+    background-size: 205%;
+  }
+  .achievements__list{
+    padding: 0;
+  }
+  .news__block{
+    height: 375px;
+    width: 300px;
+  }
+  .news_img{
+    width: 100%;
+  }
+  .absolute-shape{
+    bottom: 134.5px;
+  }
+  .news_details__list{
+    padding: 0;
+  }
+  .news_details__item{
+    font-size: 11px;
+  }
+  .news_details__item-icon{
+    margin-right: 2px;
+  }
+  .news-resent{
+    height: 355px;
+  }
 }

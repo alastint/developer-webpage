@@ -30,13 +30,16 @@
     </div>
   </div>
   <nav class="header__nav sticky">
-    <a *ngFor="let link of links" class="nav_link" href="#{{link.href}}" >{{link.name}}</a>
+    <ul class="nav_list">
+      <li class="nav_item" *ngFor="let link of links" [ngClass]="{'active': selected == link.id}">
+        <a class="nav_link" href="#{{link.href}}" (click)="choose(link.id)">{{link.name}}</a></li>
+    </ul>
   </nav>
   <div class="about__container" id="about">
     <h1 class="title">ABOUT ME</h1>
     <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
     <h3 class="title subtitle">OBJECTIVE</h3>
-    <p class="dev__description">some objective</p>
+    <p class="dev__description dev_objective">{{objective}}</p>
     <h3 class="title subtitle">WHAT I DO?</h3>
     <div class="about__rectangle-container">
       <div class="about__rectangle" *ngFor="let rectangle of rectangles">
@@ -49,25 +52,6 @@
   <div class="resume__container" id="resume">
     <h1 class="title">RESUME</h1>
     <div class="br_img"><img src="../../../assets/image-personal/br.png" alt=""></div>
-    <!--<h3 class="title subtitle">Education</h3>-->
-    <!--<section class="education timeline container">-->
-      <!--<div class="timeline-block">-->
-        <!--<div class="sm-rectangle"><img src="/src/assets/image-personal/sm-rectangle.png" alt=""></div>-->
-        <!--<div class="timeline-content">-->
-          <!--<h2>SCHOOL</h2>-->
-          <!--<p>Secondary shool sertificate </p>-->
-          <!--<span class="date">2004-2010</span>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="timeline-block">-->
-        <!--<div class="timeline-content">-->
-          <!--<h2>Event 5</h2>-->
-          <!--<p>Event 5 Description </p>-->
-          <!--<span class="date">2004-2010</span>-->
-        <!--</div>-->
-        <!--<div class="sm-rectangle btm_rectangle"><img src="/src/assets/image-personal/sm-rectangle.png" alt=""></div>-->
-      <!--</div>-->
-    <!--</section>-->
     <h3 class="title subtitle">Experience</h3>
     <section class="experience container timeline">
       <div class="timeline-block">
@@ -96,7 +80,7 @@
       <table class="skill_table">
         <tr class="skill_table" *ngFor="let skill of skills">
           <td class="skill_name">
-            <p>{{skill.name}} <span>{{skill.number_of}}%</span></p>
+            <p>{{skill.name}}:  <span class="skill_percent">{{skill.number_of}}%</span></p>
           </td>
           <td class="skill_bar">
             <div class="progress skill-progress">
@@ -111,7 +95,7 @@
       <table class="skill_table">
         <tr class="skill_table" *ngFor="let skill of skills_column">
           <td class="skill_name">
-            <p>{{skill.name}} <span>{{skill.number_of}}%</span></p>
+            <p>{{skill.name}}:  <span class="skill_percent">{{skill.number_of}}%</span></p>
           </td>
           <td class="skill_bar">
             <div class="progress skill-progress">
@@ -137,7 +121,7 @@
 
   <div class="works_container" id="works">
     <h1 class="title">WORKS</h1>
-    <div class="br_img"><img src="/src/assets/image-personal/br.png" alt=""></div>
+    <div class="br_img"><img src="./assets/image-personal/br.png" alt=""></div>
     <h3 class="title subtitle">ALL MY WORKS YOU CAN FIND AT <a href="https://github.com/neitiris">GITHUB</a></h3>
   </div>
 
@@ -147,7 +131,7 @@
         <li class="achievements__item" *ngFor="let achievement of achievements">
           <fa-icon class="achievements__icon" [icon]=" achievement.icon "></fa-icon>
           <p class="achievement_num">{{ achievement.num }}</p>
-          <p class="skill_name">{{ achievement.name }}</p>
+          <p class="skill_name achievement_name">{{ achievement.name }}</p>
         </li>
       </ul>
     </div>
@@ -160,14 +144,14 @@
       <div class="news__block">
         <div class="news-resent" *ngFor="let newsItem of news_block">
           <img class="absolute-shape" src="{{newsItem.img}}">
-          <img src="{{newsItem.bigimg}}" alt="">
+          <img class="news_img" src="{{newsItem.bigimg}}" alt="">
           <p class="news-tags">{{newsItem.tags}}</p>
           <p class="news__text">{{newsItem.text}}</p>
         </div>
         <div class="news-details">
           <ul class="news_details__list">
             <li class="news_details__item" *ngFor="let news of news_details">
-              <fa-icon [icon]=" news.icon "></fa-icon>
+              <fa-icon class="news_details__item-icon" [icon]=" news.icon "></fa-icon>
               <span>{{news.name}}</span>
             </li>
           </ul>
@@ -180,7 +164,7 @@
     <div class="hired__content">
       <div>
         <h2 class="get-hired__text">I`M AVAILABLE FOR RECRUITING</h2>
-        <a *ngFor="let link of links" class="get-hired__button" href="#home" >GET HIRED</a>
+        <a class="get-hired__button" href="#header">GET HIRED</a>
       </div>
     </div>
   </div>
@@ -191,20 +175,12 @@
       <div class="feedback_contact">
         <p class="dev__description feedback__text feedback__bold-text">SEND ME A MESSAGE</p>
         <ul class="feedback_contact__list">
-          <li class="feedback_contact__item">
-            <p class="dev__description feedback__text">NAME</p>
+          <li class="feedback_contact__item" *ngFor="let input of inputs">
+            <p class="dev__description feedback__text">{{input.text}}</p>
             <input class="feedback__input" type="text">
           </li>
           <li class="feedback_contact__item">
-            <p class="dev__description feedback__text">NAME</p>
-            <input class="feedback__input" type="text">
-          </li>
-          <li class="feedback_contact__item">
-            <p class="dev__description feedback__text">NAME</p>
-            <input class="feedback__input" type="text">
-          </li>
-          <li class="feedback_contact__item">
-            <p class="dev__description feedback__text">NAME</p>
+            <p class="dev__description feedback__text">MESSAGE</p>
             <textarea class="feedback__textarea" name=""></textarea>
           </li>
           <li class="feedback_contact__item">
